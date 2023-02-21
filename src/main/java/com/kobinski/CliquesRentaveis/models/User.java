@@ -9,15 +9,12 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Nonnull
     private Long id;
 
     @Column(name = "cpf")
-    @Nonnull
     private String cpf;
 
     @Column(name = "senha")
-    @Nonnull
     private String senha;
 
     public Long getId() {
