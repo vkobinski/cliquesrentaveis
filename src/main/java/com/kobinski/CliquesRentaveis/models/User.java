@@ -2,6 +2,8 @@ package com.kobinski.CliquesRentaveis.models;
 
 import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "UserData")
@@ -10,6 +12,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
 
     @Column(name = "cpf")
     private String cpf;
@@ -40,4 +43,7 @@ public class User {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
+
+
 }

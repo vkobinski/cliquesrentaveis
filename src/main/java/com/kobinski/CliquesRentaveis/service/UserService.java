@@ -23,6 +23,21 @@ public class UserService {
         return userRepository.save(user);
     }
 
+    public Boolean getUserByCpf(String cpf, String senha) {
+        User user = userRepository.findUserByCpf(cpf);
+
+        if(!user.getSenha().equals(senha)) {
+            return false;
+        }
+
+        if(!user.getCpf().equals(cpf)) {
+            return false;
+        }
+
+        return true;
+
+    }
+
     public User updateUser(Long id, User updatedUser) {
         User user = userRepository.findById(id).orElse(null);
         if (user != null) {
