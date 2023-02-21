@@ -4,7 +4,7 @@ import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "user")
+@Table(name = "UserData")
 public class User {
 
     @Id
