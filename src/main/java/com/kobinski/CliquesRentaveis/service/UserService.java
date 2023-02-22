@@ -26,6 +26,8 @@ public class UserService {
     public Boolean getUserByCpf(String cpf, String senha) {
         User user = userRepository.findUserByCpf(cpf);
 
+        if(user == null) return false;
+
         if(!user.getSenha().equals(senha)) {
             return false;
         }

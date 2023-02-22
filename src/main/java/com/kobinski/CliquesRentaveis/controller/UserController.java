@@ -33,12 +33,13 @@ public class UserController {
         }
     }
 
-    @PostMapping("/login/")
+
+    @PostMapping("/auth")
     public ResponseEntity<Object> getUserByCpf(@RequestBody User user) {
         boolean authenticated = userService.getUserByCpf(user.getCpf(), user.getSenha());
 
         if(authenticated)  {
-            return ResponseEntity.ok().header("Auth", "ok").build();
+            return ResponseEntity.ok("ok");
         }
         else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
