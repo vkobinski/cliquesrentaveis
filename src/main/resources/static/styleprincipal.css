@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap');
+
+.imagemBotao {
+
+    height: 50px;
+    width: 50px;
+    background-color: grey;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 30px;
+}
+
+.blocoTexto {
+
+    text-align: center;
+    font-family: 'League Spartan', sans-serif;
+    color: white;
+    font-size: 30px;
+    background-color: grey;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.blocoBotoes {
+    display: flex;
+    margin: auto;
+    width: fit-content;
+
+}
+
+.sitesMenor {
+    display: flex;
+    margin: 20px;
+
+}
+
+.blocoSites {
+    display: block;
+    width: fit-content;
+    margin: auto;
+}
+
+.imageSite {
+    width: 30%;
+    height: 120px;
+    background-color: gray;
+    padding: 10px;
+    margin: 20px;
+}
+
+.botaoAzul {
+    margin: 60px;
+    padding: 30px;
+    border-radius: 10px;
+    display: block;
+    background-color: #20448c;
+    color: white;
+    font-family: 'League Spartan', sans-serif;
+    text-align: center;
+}
