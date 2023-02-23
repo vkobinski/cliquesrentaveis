@@ -22,6 +22,9 @@ botao.onclick = function(){
     .then(data => {
         if(data === "ok") {
             window.location.href = "/principal.html"
+
+        }else {
+            alert("CPF ou senha incorretos")
         }
     })
     .catch(error => console.error(error));
