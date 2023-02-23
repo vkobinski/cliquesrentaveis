@@ -18,22 +18,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping
-    public  ResponseEntity<List<User>> getUsers() {
-        return ResponseEntity.ok(userService.findAll());
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<User> getUserById(@PathVariable Long id) {
-        User user = userService.getUserById(id);
-        if (user != null) {
-            return ResponseEntity.ok(user);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
-
-
     @PostMapping("/auth")
     public ResponseEntity<Object> getUserByCpf(@RequestBody User user) {
         boolean authenticated = userService.getUserByCpf(user.getCpf(), user.getSenha());
@@ -52,20 +36,5 @@ public class UserController {
         return ResponseEntity.ok(savedUser);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User user) {
-        User updatedUser = userService.updateUser(id, user);
-        if (updatedUser != null) {
-            return ResponseEntity.ok(updatedUser);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
-        userService.deleteUser(id);
-        return ResponseEntity.noContent().build();
-    }
 }
 

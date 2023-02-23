@@ -2,6 +2,7 @@ package com.kobinski.CliquesRentaveis.service;
 
 import com.kobinski.CliquesRentaveis.models.User;
 import com.kobinski.CliquesRentaveis.repository.UserRepository;
+import com.kobinski.CliquesRentaveis.security.PasswordConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,8 +11,15 @@ import java.util.List;
 @Service
 public class UserService {
 
-    @Autowired
     private UserRepository userRepository;
+
+    private final PasswordConfig passwordConfig;
+
+    @Autowired
+    public UserService(UserRepository userRepository, PasswordConfig passwordConfig) {
+        this.userRepository = userRepository;
+        this.passwordConfig = passwordConfig;
+    }
 
     public User getUserById(Long id) {
         return userRepository.findById(id).orElse(null);
@@ -20,6 +28,7 @@ public class UserService {
     public List<User> findAll() { return userRepository.findAll();}
 
     public User saveUser(User user) {
+        user.setSenha(passwordConfig.passwordEncoder().encode(user.getSenha()));
         return userRepository.save(user);
     }
 
@@ -28,7 +37,7 @@ public class UserService {
 
         if(user == null) return false;
 
-        if(!user.getSenha().equals(senha)) {
+        if(!passwordConfig.passwordEncoder().matches(senha, user.getSenha())) {
             return false;
         }
 
